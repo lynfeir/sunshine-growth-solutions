@@ -1,15 +1,15 @@
 # Updating this site from another computer
 
-The live site auto-deploys from GitHub Pages whenever you push to `main`.
+The live site auto-deploys to Vercel whenever you push to `main`.
 
 - Repo: https://github.com/lynfeir/sunshine-growth-solutions
-- Live: https://lynfeir.github.io/sunshine-growth-solutions/
+- Live: https://sunshine-growth-solutions.vercel.app
 
 ## Copy-paste prompt for Claude (or any AI assistant) on another computer
 
 > I want to update Tanya DiClemente's website, Sunshine Growth Solutions.
 >
-> The repo is at https://github.com/lynfeir/sunshine-growth-solutions and it auto-deploys to https://lynfeir.github.io/sunshine-growth-solutions/ on every push to `main`.
+> The repo is at https://github.com/lynfeir/sunshine-growth-solutions and it auto-deploys to https://sunshine-growth-solutions.vercel.app on every push to `main`.
 >
 > Please:
 > 1. Clone the repo if it isn't already on this machine: `gh repo clone lynfeir/sunshine-growth-solutions`
@@ -54,7 +54,7 @@ git commit -m "short description of what you changed"
 git push
 ```
 
-GitHub Pages rebuilds automatically. Check the Actions tab in the repo for build status.
+Vercel rebuilds automatically. Check the project in the Vercel dashboard for build status.
 
 ## If you need a different account
 

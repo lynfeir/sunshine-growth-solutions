@@ -1,6 +1,6 @@
 # Sunshine Growth Solutions — Website
 
-A warm, hand-crafted marketing site for **Sunshine Growth Solutions** by Tonya DiClemente —
+A warm, hand-crafted marketing site for **Sunshine Growth Solutions** by Tanya DiClemente —
 business development, growth strategy, and proposal solutions for AEC firms.
 
 Built as a fully static site (HTML + CSS + JS). No build step, no framework, no backend.
@@ -79,7 +79,7 @@ The About section currently shows a "TD" monogram inside a styled arch frame. To
 portrait, edit the `.arch-photo` block in `index.html`:
 
 ```html
-<div class="arch-photo" role="img" aria-label="Portrait of Tonya DiClemente">
+<div class="arch-photo" role="img" aria-label="Portrait of Tanya DiClemente">
   <img src="assets/tonya.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" />
 </div>
 ```
@@ -181,4 +181,4 @@ Tested in current Chrome, Edge, Firefox, and Safari. Uses modern CSS (`color-mix
 Design and build: tailored boho/sunshine identity inspired by the warmth of the brand.
 Fonts via Google Fonts (Fraunces, Nunito Sans, Caveat).
 
-🌞 Built with sunshine for Tonya DiClemente.
+🌞 Built with sunshine for Tanya DiClemente.

@@ -464,8 +464,8 @@ p { color: var(--text); }
   aspect-ratio: 3 / 4;
   border-radius: 999px 999px 24px 24px;
   background:
-    radial-gradient(120% 60% at 50% 12%, var(--sun-soft), transparent 60%),
-    linear-gradient(160deg, var(--blush-soft), var(--terracotta-soft));
+    linear-gradient(180deg, color-mix(in srgb, var(--blush-soft) 26%, transparent) 0%, color-mix(in srgb, var(--terracotta-soft) 44%, transparent) 100%),
+    url("../assets/arch-bg.jpg") center 30% / cover no-repeat;
   border: 8px solid var(--cream-card);
   box-shadow: var(--shadow-lg);
   display: grid; place-items: center;
@@ -474,10 +474,19 @@ p { color: var(--text); }
 }
 .portrait-initials {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
   font-weight: 500;
-  color: color-mix(in srgb, var(--terracotta-deep) 70%, transparent);
+  color: var(--terracotta-deep);
   letter-spacing: 0.02em;
+  width: 2em;
+  height: 2em;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--cream-card) 74%, transparent);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-sm), inset 0 0 0 1px color-mix(in srgb, var(--cream) 60%, transparent);
 }
 .arch-floral {
   position: absolute; width: 84px; bottom: -26px; right: -18px;
@@ -730,6 +739,86 @@ p { color: var(--text); }
 [data-reveal][data-delay="1"] { transition-delay: 0.08s; }
 [data-reveal][data-delay="2"] { transition-delay: 0.16s; }
 [data-reveal][data-delay="3"] { transition-delay: 0.24s; }
+
+/* ---------- Photographic layers + ambient motion ---------- */
+
+/* Hero — sunlit meadow photo with a slow Ken Burns drift */
+.hero-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-photo::before {
+  content: "";
+  position: absolute; inset: -7%;
+  background: url("../assets/hero-bg.jpg") center 50% / cover no-repeat;
+  opacity: 0.5;
+  animation: heroKen 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(125% 100% at 50% 40%,
+    color-mix(in srgb, var(--cream) 26%, transparent) 0%,
+    color-mix(in srgb, var(--cream) 60%, transparent) 56%,
+    var(--cream) 100%);
+}
+@keyframes heroKen {
+  from { transform: scale(1.05) translate3d(0, 0, 0); }
+  to   { transform: scale(1.14) translate3d(-1.8%, -1.6%, 0); }
+}
+
+/* Hero — drifting petals */
+.petals { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.petal {
+  position: absolute; top: -6%;
+  width: 15px; height: 15px;
+  background: color-mix(in srgb, var(--blush) 85%, transparent);
+  border-radius: 80% 0 80% 0;
+  opacity: 0;
+  animation: petalDrift linear infinite;
+  will-change: transform, opacity;
+}
+.petal:nth-child(1) { left: 9%;  animation-duration: 17s; animation-delay: 0s;  background: color-mix(in srgb, var(--sun) 78%, transparent); }
+.petal:nth-child(2) { left: 25%; animation-duration: 22s; animation-delay: 5s;  width: 12px; height: 12px; }
+.petal:nth-child(3) { left: 46%; animation-duration: 19s; animation-delay: 9s;  background: color-mix(in srgb, var(--terracotta-soft) 92%, transparent); }
+.petal:nth-child(4) { left: 64%; animation-duration: 25s; animation-delay: 2s;  width: 17px; height: 17px; }
+.petal:nth-child(5) { left: 80%; animation-duration: 18s; animation-delay: 12s; background: color-mix(in srgb, var(--sun-soft) 96%, transparent); }
+.petal:nth-child(6) { left: 92%; animation-duration: 21s; animation-delay: 7s;  width: 12px; height: 12px; }
+@keyframes petalDrift {
+  0%   { transform: translateY(-10%) translateX(0) rotate(0deg); opacity: 0; }
+  12%  { opacity: 0.8; }
+  86%  { opacity: 0.65; }
+  100% { transform: translateY(900px) translateX(48px) rotate(300deg); opacity: 0; }
+}
+
+/* Hero — breathing sun + floating florals */
+@keyframes sunBreathe { 0%, 100% { transform: scale(1); opacity: 0.2; } 50% { transform: scale(1.07); opacity: 0.3; } }
+.hero-sun { animation: sunBreathe 10s ease-in-out infinite; }
+@keyframes floatSoft { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(2.5deg); } }
+.floral-tl { animation: floatSoft 8s ease-in-out infinite; }
+.floral-br { animation: floatSoft 11s ease-in-out infinite reverse; }
+.arch-floral { animation: floatSoft 9s ease-in-out infinite; }
+
+/* CTA band — golden field photo behind the warm gradient */
+.cta-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.cta-photo::before {
+  content: "";
+  position: absolute; inset: -6%;
+  background: url("../assets/cta-bg.jpg") center / cover no-repeat;
+  opacity: 0.42;
+  animation: ctaDrift 34s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.cta-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--terracotta-deep) 74%, transparent) 0%,
+    color-mix(in srgb, var(--terracotta) 42%, transparent) 55%,
+    color-mix(in srgb, var(--sun-deep) 52%, transparent) 120%);
+}
+@keyframes ctaDrift {
+  from { transform: scale(1.05) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(2%, -1.5%, 0); }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 880px) {

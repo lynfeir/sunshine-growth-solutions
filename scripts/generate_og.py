@@ -106,8 +106,8 @@ d.text((PAD, by), "Sunshine Growth Solutions", font=serif_b(38), fill=INK)
 d.text((PAD, by + 50), "BUSINESS DEVELOPMENT · GROWTH STRATEGY · PROPOSALS",
        font=sans(16), fill=TERRA)
 
-# Decorative script accent — small "by Tonya DiClemente" right side
-byline = "by Tonya DiClemente"
+# Decorative script accent — small "by Tanya DiClemente" right side
+byline = "by Tanya DiClemente"
 bf = script(30)
 bw = d.textlength(byline, font=bf)
 d.text((W - PAD - bw, H - 64), byline, font=bf, fill=SUN_DEEP)

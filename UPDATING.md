@@ -7,7 +7,7 @@ The live site auto-deploys from GitHub Pages whenever you push to `main`.
 
 ## Copy-paste prompt for Claude (or any AI assistant) on another computer
 
-> I want to update Tonya DiClemente's website, Sunshine Growth Solutions.
+> I want to update Tanya DiClemente's website, Sunshine Growth Solutions.
 >
 > The repo is at https://github.com/lynfeir/sunshine-growth-solutions and it auto-deploys to https://lynfeir.github.io/sunshine-growth-solutions/ on every push to `main`.
 >

@@ -87,13 +87,13 @@ d.text((PAD, 170), "hello & welcome", font=script(46), fill=TERRA)
 # Headline (wrapped manually)
 hl = serif_b(78)
 hi = serif_i(78)
-lines = [("Strategic growth that", None), ("helps your business", None)]
+lines = [("Strategic growth that", None), ("helps your firm", None)]
 y = 224
 for text, _ in lines:
     d.text((PAD, y), text, font=hl, fill=INK)
     y += 86
-# last line: bloom. in gold italic
-d.text((PAD, y), "bloom.", font=hi, fill=SUN_DEEP)
+# last line: accent phrase in gold italic
+d.text((PAD, y), "win more work.", font=hi, fill=SUN_DEEP)
 y += 104
 
 # Subtitle

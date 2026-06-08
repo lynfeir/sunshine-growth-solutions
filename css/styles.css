@@ -625,7 +625,8 @@ p { color: var(--text); }
 .contact-copy > p { color: var(--muted); max-width: 46ch; margin-bottom: 1.8rem; }
 .contact-details { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: 1rem; }
 .contact-details li { display: flex; align-items: center; gap: 0.9rem; }
-.contact-details a { font-weight: 700; color: var(--ink); transition: color 0.2s var(--ease); }
+.contact-details a { font-weight: 700; color: var(--ink); transition: color 0.2s var(--ease); overflow-wrap: anywhere; min-width: 0; }
+.contact-details li { min-width: 0; }
 .contact-details a:hover { color: var(--terracotta-deep); }
 .ci {
   display: grid; place-items: center; flex: none;
@@ -728,7 +729,7 @@ p { color: var(--text); }
   color: var(--sun); margin-bottom: 1rem; font-weight: 800;
 }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
-.site-footer a { color: color-mix(in srgb, var(--cream) 82%, transparent); transition: color 0.2s var(--ease); }
+.site-footer a { color: color-mix(in srgb, var(--cream) 82%, transparent); transition: color 0.2s var(--ease); overflow-wrap: anywhere; }
 .site-footer a:hover { color: var(--sun); }
 .footer-base { border-top: 1px solid rgba(255,255,255,0.1); }
 .footer-base-inner {
@@ -833,6 +834,7 @@ p { color: var(--text); }
 }
 
 @media (max-width: 760px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 2.2rem; }
   .nav-toggle { display: flex; }
   .nav-menu {
     position: fixed;

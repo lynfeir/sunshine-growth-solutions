@@ -4,27 +4,27 @@
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* Palette */
+  /* Palette — matched to the Sunshine Growth Solutions logo */
   --cream:        #FCF6EA;
-  --cream-deep:   #F6EAD5;
+  --cream-deep:   #F3E8D6;
   --cream-card:   #FFFBF4;
-  --ink:          #3B2F25;
-  --ink-soft:     #6E5F50;
+  --ink:          #33403F;   /* deep teal, from the wordmark */
+  --ink-soft:     #586664;
 
-  --sun:          #EBA63A;
-  --sun-deep:     #D5821F;
-  --sun-soft:     #FBE7C2;
+  --sun:          #C99A5C;   /* warm gold, from the rays & subtitle */
+  --sun-deep:     #AC7F3E;
+  --sun-soft:     #F0E2C6;
 
-  --terracotta:       #C0603A;
-  --terracotta-deep:  #9F4A2C;
-  --terracotta-soft:  #EFC7B5;
+  --terracotta:       #C57A55;   /* the sun */
+  --terracotta-deep:  #A85C3C;
+  --terracotta-soft:  #E9C9B7;
 
-  --sage:        #94A06B;
-  --sage-deep:   #5F6B43;
-  --sage-soft:   #DEE3C8;
+  --sage:        #5E7573;   /* repointed to the logo teal */
+  --sage-deep:   #435958;
+  --sage-soft:   #D9E2E0;
 
-  --blush:       #DDA193;
-  --blush-soft:  #F4DAD1;
+  --blush:       #D69E86;
+  --blush-soft:  #F0D6CB;
 
   /* Roles */
   --bg:          var(--cream);
@@ -202,8 +202,8 @@ p { color: var(--text); }
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn:active { transform: translateY(0); }
 
-.btn-primary { --btn-bg: var(--sun); --btn-fg: var(--ink); }
-.btn-primary:hover { background: var(--sun-deep); }
+.btn-primary { --btn-bg: var(--terracotta); --btn-fg: var(--cream); }
+.btn-primary:hover { background: var(--terracotta-deep); }
 
 .btn-ghost {
   --btn-bg: transparent;
@@ -242,6 +242,8 @@ p { color: var(--text); }
 }
 
 .brand { display: inline-flex; align-items: center; gap: 0.7rem; }
+.brand-logo { height: clamp(40px, 5.2vw, 52px); width: auto; display: block; transition: transform 0.4s var(--ease); }
+.brand:hover .brand-logo { transform: scale(1.03); }
 .brand-mark { color: var(--sun-deep); display: grid; place-items: center; flex: none; }
 .brand-mark svg { transition: transform 0.6s var(--ease); }
 .brand:hover .brand-mark svg { transform: rotate(40deg); }
@@ -279,14 +281,14 @@ p { color: var(--text); }
   background: var(--sun-deep); border-radius: 2px;
 }
 .nav-cta {
-  background: var(--sun);
-  color: var(--ink) !important;
+  background: var(--terracotta);
+  color: var(--cream) !important;
   font-weight: 800;
   padding: 0.6rem 1.25rem !important;
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s var(--ease), background 0.2s var(--ease) !important;
 }
-.nav-cta:hover { background: var(--sun-deep); transform: translateY(-1px); }
+.nav-cta:hover { background: var(--terracotta-deep); transform: translateY(-1px); }
 .nav-cta.is-active::after { display: none; }
 
 .nav-toggle {
@@ -705,7 +707,7 @@ p { color: var(--text); }
 .form-status.is-error { background: color-mix(in srgb, var(--terracotta) 18%, transparent); color: var(--terracotta-deep); }
 
 /* ---------- Footer ---------- */
-.site-footer { position: relative; background: #33291F; color: color-mix(in srgb, var(--cream) 82%, transparent); padding-top: clamp(3.5rem, 6vw, 5rem); }
+.site-footer { position: relative; background: #2E3C3B; color: color-mix(in srgb, var(--cream) 82%, transparent); padding-top: clamp(3.5rem, 6vw, 5rem); }
 .footer-bloom { position: absolute; top: -1px; left: 0; right: 0; line-height: 0; transform: translateY(-99%); }
 .footer-bloom svg { width: 100%; height: clamp(30px, 4vw, 56px); }
 .footer-inner {
@@ -718,6 +720,8 @@ p { color: var(--text); }
 .footer-brand .brand-sub { color: var(--sun); }
 .brand-footer .brand-mark { color: var(--sun); }
 .footer-tagline { font-size: 1.6rem; color: var(--sun); margin-top: 0.8rem; }
+.footer-badge { background: var(--cream-card); border-radius: 50%; padding: 9px; display: grid; place-items: center; box-shadow: var(--shadow-sm); }
+.footer-badge img { width: 54px; height: 54px; display: block; }
 .site-footer h3 {
   font-family: var(--font-body);
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em;
